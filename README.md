@@ -19,7 +19,7 @@ Finding the point where two lines intersect:
 
 	CGLine line1 = CGLineMake(CGPointMake(2, 0), CGPointMake(2, 4));
 	CGLine line2 = CGLineMake(CGPointMake(0, 2), CGPointMake(4, 2));
-	CGLinesIntersectAtPoint(line1, line2)	// => 2,2
+	CGLinesIntersectAtPoint(line1, line2)	// => (2,2)
 
 Find the closest two corner points of a rectangle to a point in space:
 
@@ -27,13 +27,13 @@ Find the closest two corner points of a rectangle to a point in space:
 	CGPoint point = CGPointMake(0, 0);
 	CGPoint point1 = CGPointZero;
 	CGPoint point2 = CGPointZero;
-	CGRectClosestTwoCornerPoints(rect, point, &point1, &point2);	// => 0,0 2,1
+	CGRectClosestTwoCornerPoints(rect, point, &point1, &point2);	// => (0,0) (2,1)
 
 The point where a line intersects a rect, if at all:
 
 	CGRect rect = CGRectMake(1, 1, 4, 4);
 	CGLine line = CGLineMake(CGPointMake(0, 1), CGPointMake(2, 2));
-	CGLineIntersectsRectAtPoint(rect, line);	// 5, 3.5
+	CGLineIntersectsRectAtPoint(rect, line);	// => (5, 3.5)
 
 ### Documentation
 
