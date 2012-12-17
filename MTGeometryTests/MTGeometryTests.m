@@ -34,6 +34,23 @@
 	STAssertTrue((float)CGPointDistance(CGPointMake(1, 1), CGPointMake(2, 2)) == (float)sqrt(2), nil);
 }
 
+- (void)testPointAlongLine
+{
+    CGLine line = CGLineMake(CGPointMake(0, 0), CGPointMake(1, 1));
+    CGFloat distance = 1.0;
+    CGPoint point = CGPointAlongLine(line, distance);
+    STAssertTrue(CGPointEqualToPoint(point, CGPointMake(1.0 / sqrt(2.0), 1.0 / sqrt(2.0))), nil);
+}
+
+- (void)testPointRotatedAroundPoint
+{
+    CGPoint original    = CGPointMake(2, 2);
+    CGPoint pivot       = CGPointMake(1, 1);
+    CGFloat degrees     = 90;
+    CGPoint rotated     = CGPointRotatedAroundPoint(original, pivot, degrees);
+    STAssertTrue(CGPointEqualToPoint(rotated, CGPointMake(0, 2)), nil);
+}
+
 
 
 

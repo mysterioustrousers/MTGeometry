@@ -33,6 +33,28 @@ CGFloat CGPointDistance(CGPoint p1, CGPoint p2)
     return dist;
 }
 
+CGPoint CGPointAlongLine(CGLine line, CGFloat distance)
+{
+    CGPoint start           = line.point1;
+    CGPoint end             = line.point2;
+    CGFloat totalDistance	= CGPointDistance(start, end);
+	CGPoint totalDelta		= CGPointMake(end.x - start.x, end.y - start.y);
+	CGFloat percent			= distance / totalDistance;
+	CGPoint delta			= CGPointMake( totalDelta.x * percent, totalDelta.y * percent );
+	return CGPointMake( start.x + delta.x, start.y + delta.y);
+}
+
+CGPoint CGPointRotatedAroundPoint(CGPoint point, CGPoint pivot, CGFloat degrees)
+{
+    CGAffineTransform translation, rotation;
+	translation	= CGAffineTransformMakeTranslation(-pivot.x, -pivot.y);
+	point		= CGPointApplyAffineTransform(point, translation);
+	rotation	= CGAffineTransformMakeRotation(degrees * M_PI/180.0);
+	point		= CGPointApplyAffineTransform(point, rotation);
+	translation	= CGAffineTransformMakeTranslation(pivot.x, pivot.y);
+	point		= CGPointApplyAffineTransform(point, translation);
+	return point;
+}
 
 
 

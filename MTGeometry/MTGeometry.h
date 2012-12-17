@@ -14,23 +14,8 @@
 #define RADIANS(degrees)	((degrees * M_PI) / 180.0)
 
 
-
-
-
-
-#pragma mark - Points
-
 // A delta point representing the distance of a translation transform
 typedef CGPoint CGDelta;
-CGDelta CGDeltaMake(CGFloat deltaX, CGFloat deltaY);
-
-// Get the distance between two points
-CGFloat	CGPointDistance(CGPoint p1, CGPoint p2);
-
-
-
-
-#pragma mark - Lines
 
 // A line is defined as two points
 typedef struct {
@@ -38,7 +23,30 @@ typedef struct {
 	CGPoint point2;
 } CGLine;
 
-// Create a line from 2 points
+
+
+
+
+
+
+#pragma mark - Points
+
+// Create a delta from a delta x and y
+CGDelta CGDeltaMake(CGFloat deltaX, CGFloat deltaY);
+
+// Get the distance between two points
+CGFloat	CGPointDistance(CGPoint p1, CGPoint p2);
+
+// A point along a line distance from point1.
+CGPoint CGPointAlongLine(CGLine line, CGFloat distance);
+
+// A point rotated around the pivot point by degrees.
+CGPoint CGPointRotatedAroundPoint(CGPoint point, CGPoint pivot, CGFloat degrees);
+
+
+#pragma mark - Lines
+
+// Create a line from 2 points.
 CGLine CGLineMake(CGPoint point1, CGPoint point2);
 
 // Returns true if two lines are exactly coincident
