@@ -15,19 +15,22 @@ NOTE: You may need to add `-all_load` to "Other Linker Flags" in your targets bu
 
 ### Example Usage
 
-## Points
+#### Points
 
 Create a delta from x and y deltas
 
 	CGDelta CGDeltaMake(CGFloat deltaX, CGFloat deltaY);
-	
-	// Get the distance between two points
+
+Get the distance between two points
+
 	CGFloat	CGPointDistance(CGPoint p1, CGPoint p2);
-	
-	// A point along a line distance from point1.
+
+A point along a line distance from point1.
+
 	CGPoint CGPointAlongLine(CGLine line, CGFloat distance);
-	
-	// A point rotated around the pivot point by degrees.
+
+A point rotated around the pivot point by degrees.
+
 	CGPoint CGPointRotatedAroundPoint(CGPoint point, CGPoint pivot, CGFloat degrees);
 
 #### Lines
