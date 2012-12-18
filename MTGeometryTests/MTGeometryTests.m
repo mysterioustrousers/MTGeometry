@@ -107,6 +107,16 @@
 	STAssertTrue(CGLineDelta(line).x == 1 && CGLineDelta(line).y == 1, nil);
 }
 
+- (void)testParallelLines
+{
+	CGLine line1 = CGLineMake(CGPointMake(2, 5), CGPointMake(5, 8));
+	CGLine line2 = CGLineMake(CGPointMake(2, 2), CGPointMake(5, 5));
+	STAssertTrue(CGLinesAreParallel(line1, line2), nil);
+    
+	line1 = CGLineMake(CGPointMake(2, 6), CGPointMake(5, 8));
+	line2 = CGLineMake(CGPointMake(2, 2), CGPointMake(5, 5));
+	STAssertFalse(CGLinesAreParallel(line1, line2), nil);
+}
 
 
 #pragma mark - Rectangles

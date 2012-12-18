@@ -138,6 +138,31 @@ CGDelta CGLineDelta(CGLine line)
 	return CGDeltaMake(line.point2.x - line.point1.x, line.point2.y - line.point1.y);
 }
 
+bool CGLinesAreParallel(CGLine line1, CGLine line2)
+{
+	CGFloat denom;
+    
+	double x1 = line1.point1.x;
+	double y1 = line1.point1.y;
+	double x2 = line1.point2.x;
+	double y2 = line1.point2.y;
+	double x3 = line2.point1.x;
+	double y3 = line2.point1.y;
+	double x4 = line2.point2.x;
+	double y4 = line2.point2.y;
+    
+	denom  = (y4-y3) * (x2-x1) - (x4-x3) * (y2-y1);     // m1 - m2
+    
+	if (MT_ABS(denom) < MT_EPS)
+    {
+		return true;
+	}
+    else
+    {
+        return false;
+    }
+
+}
 
 
 
