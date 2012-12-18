@@ -67,6 +67,8 @@ CGLine CGLineScale(CGLine line, CGFloat scale);
 // Returns the delta x and y of the line from point 1 to point 2.
 CGDelta CGLineDelta(CGLine line);
 
+// Returns true if two lines are parallel
+bool CGLinesAreParallel(CGLine line1, CGLine line2);
 
 
 
