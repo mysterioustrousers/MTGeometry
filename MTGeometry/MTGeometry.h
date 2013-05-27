@@ -6,8 +6,14 @@
 //  Copyright (c) 2012 Mysterious Trousers. All rights reserved.
 //
 
-#import <CoreGraphics/CoreGraphics.h>
+#import "TargetConditionals.h"
 #import <math.h>
+
+#if TARGET_OS_IPHONE
+#import <CoreGraphics/CoreGraphics.h>
+#else
+#import <ApplicationServices/ApplicationServices.h>
+#endif
 
 
 #define NOPOINT				CGPointMake(INFINITY, INFINITY)
