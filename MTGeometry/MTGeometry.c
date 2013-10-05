@@ -108,14 +108,14 @@ CGPoint CGLinesIntersectAtPoint(CGLine line1, CGLine line2)
 
 	/* Are the line parallel */
 	if (MT_ABS(denom) < MT_EPS) {
-		return NOPOINT;
+		return NULL_POINT;
 	}
 
 	/* Is the intersection along the the segments */
 	mua = numera / denom;
 	mub = numerb / denom;
 	if (mua < 0 || mua > 1 || mub < 0 || mub > 1) {
-		return NOPOINT;
+		return NULL_POINT;
 	}
 	return CGPointMake(x1 + mua * (x2 - x1), y1 + mua * (y2 - y1));
 }
@@ -334,12 +334,12 @@ CGPoint CGLineIntersectsRectAtPoint(CGRect rect, CGLine line)
 
 	for (int i = 0; i < 4; i++) {
 		CGPoint p = points[i];
-		if (!CGPointEqualToPoint(p, NOPOINT)) {
+		if (!CGPointEqualToPoint(p, NULL_POINT)) {
 			return p;
 		}
 	}
 
-	return NOPOINT;
+	return NULL_POINT;
 }
 
 

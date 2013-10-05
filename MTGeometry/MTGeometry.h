@@ -16,7 +16,8 @@
 #endif
 
 
-#define NOPOINT				CGPointMake(INFINITY, INFINITY)
+#define NULL_NUMBER         INFINITY
+#define NULL_POINT			CGPointMake(NULL_NUMBER, NULL_NUMBER)
 #define RADIANS(degrees)	((degrees * M_PI) / 180.0)
 
 
@@ -28,10 +29,6 @@ typedef struct {
 	CGPoint point1;
 	CGPoint point2;
 } CGLine;
-
-
-
-
 
 
 
@@ -61,7 +58,7 @@ bool CGLineEqualToLine(CGLine line1, CGLine line2);
 // Get a lines midpoint
 CGPoint CGLineMidPoint(CGLine line);
 
-// Get the point at which two lines intersect. Returns NOPOINT if they don't intersect.
+// Get the point at which two lines intersect. Returns NULL_POINT if they don't intersect.
 CGPoint CGLinesIntersectAtPoint(CGLine line1, CGLine line2);
 
 // Get the length of a line
@@ -107,5 +104,5 @@ CGPoint CGRectCenterPoint(CGRect rect);
 void	CGRectClosestTwoCornerPoints(CGRect rect, CGPoint point, CGPoint *point1, CGPoint *point2);
 
 // The point at which a line, extended infinitely past its second point, intersects
-// the rectangle. Returns NOPOINT if no interseciton is found.
+// the rectangle. Returns NULL_POINT if no interseciton is found.
 CGPoint CGLineIntersectsRectAtPoint(CGRect rect, CGLine line);
