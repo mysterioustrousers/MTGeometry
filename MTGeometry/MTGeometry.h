@@ -17,8 +17,8 @@
 
 
 #define NULL_NUMBER         INFINITY
-#define NULL_POINT			CGPointMake(NULL_NUMBER, NULL_NUMBER)
-#define RADIANS(degrees)	((degrees * M_PI) / 180.0)
+#define NULL_POINT          CGPointMake(NULL_NUMBER, NULL_NUMBER)
+#define RADIANS(degrees)    ((degrees * M_PI) / 180.0)
 
 
 // A delta point representing the distance of a translation transform
