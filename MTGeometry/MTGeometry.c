@@ -133,6 +133,25 @@ CGLine CGLineScale(CGLine line, CGFloat scale)
 	return CGLineMake( CGPointMake(line.point1.x, line.point1.y), CGPointMake(line.point1.x + scaledDeltaX, line.point1.y + scaledDeltaY) );
 }
 
+CGLine CGLineTranslate(CGLine line, CGDelta delta)
+{
+    line.point1.x += delta.x;
+    line.point1.y += delta.y;
+    line.point2.x += delta.x;
+    line.point2.y += delta.y;
+    return line;
+}
+
+CGLine CGLineScaleOnMidPoint(CGLine line, CGFloat scale)
+{
+    CGPoint midPoint = CGLineMidPoint(line);
+    CGLine scaledLine = CGLineScale(line, scale);
+    CGPoint midScaled = CGPointMake(((scaledLine.point2.x - line.point2.x) / 2.0) + line.point2.x,
+                                    ((scaledLine.point2.y - line.point2.y) / 2.0) + line.point2.y);
+    CGPoint newStartPoint = CGPointRotatedAroundPoint(midScaled, midPoint, 180);
+    return CGLineMake(newStartPoint, midScaled);
+}
+
 CGDelta CGLineDelta(CGLine line)
 {
 	return CGDeltaMake(line.point2.x - line.point1.x, line.point2.y - line.point1.y);
@@ -153,15 +172,12 @@ bool CGLinesAreParallel(CGLine line1, CGLine line2)
     
 	denom  = (y4-y3) * (x2-x1) - (x4-x3) * (y2-y1);     // m1 - m2
     
-	if (MT_ABS(denom) < MT_EPS)
-    {
+	if (MT_ABS(denom) < MT_EPS) {
 		return true;
 	}
-    else
-    {
+    else {
         return false;
     }
-
 }
 
 
@@ -341,6 +357,42 @@ CGPoint CGLineIntersectsRectAtPoint(CGRect rect, CGLine line)
 
 	return NULL_POINT;
 }
+
+
+
+
+#pragma mark - Arcs
+
+void CGControlPointsForArcBetweenPointsWithRadius(CGPoint startPoint,
+                                                  CGPoint endPoint,
+                                                  CGFloat radius,
+                                                  bool rightHandRule,
+                                                  CGPoint *controlPoint1,
+                                                  CGPoint *controlPoint2)
+{
+    CGLine line             = CGLineMake(startPoint, endPoint);
+    CGPoint midPoint        = CGLineMidPoint(line);
+    CGFloat degrees         = rightHandRule ? 90 : -90;
+    CGPoint rotatedPoint    = CGPointRotatedAroundPoint(startPoint, midPoint, degrees);
+    CGFloat lineLength      = CGLineLength(line);
+    if (lineLength > radius * 2) {
+        *controlPoint1 = CGPointMake(startPoint.x, startPoint.y);
+        *controlPoint2 = CGPointMake(endPoint.x, endPoint.y);
+        return;
+    }
+    CGFloat diameterPercent = lineLength / (radius * 2);
+    CGLine perpLine         = CGLineMake(midPoint, rotatedPoint);
+    CGLine arcMidLine       = CGLineScale(perpLine, diameterPercent);
+    CGDelta arcMidLineDelta = CGLineDelta(arcMidLine);
+    CGLine scaledLine       = CGLineScaleOnMidPoint(line, diameterPercent);
+    CGLine translatedLine   = CGLineTranslate(scaledLine, arcMidLineDelta);
+    *controlPoint1          = translatedLine.point1;
+    *controlPoint2          = translatedLine.point2;
+}
+
+
+
+
 
 
 

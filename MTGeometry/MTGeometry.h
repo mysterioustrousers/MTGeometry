@@ -9,6 +9,7 @@
 #import "TargetConditionals.h"
 #import <math.h>
 
+
 #if TARGET_OS_IPHONE
 #import <CoreGraphics/CoreGraphics.h>
 #else
@@ -32,6 +33,7 @@ typedef struct {
 
 
 
+
 #pragma mark - Points
 
 // Create a delta from a delta x and y
@@ -45,6 +47,8 @@ CGPoint CGPointAlongLine(CGLine line, CGFloat distance);
 
 // A point rotated around the pivot point by degrees.
 CGPoint CGPointRotatedAroundPoint(CGPoint point, CGPoint pivot, CGFloat degrees);
+
+
 
 
 #pragma mark - Lines
@@ -67,11 +71,18 @@ CGFloat CGLineLength(CGLine line);
 // Returns a scaled line. Point 1 acts as the base and Point 2 is extended.
 CGLine CGLineScale(CGLine line, CGFloat scale);
 
+// Returns a line translated by delta.
+CGLine CGLineTranslate(CGLine line, CGDelta delta);
+
+// Returns a scaled line with the same midpoint.
+CGLine CGLineScaleOnMidPoint(CGLine line, CGFloat scale);
+
 // Returns the delta x and y of the line from point 1 to point 2.
 CGDelta CGLineDelta(CGLine line);
 
 // Returns true if two lines are parallel
 bool CGLinesAreParallel(CGLine line1, CGLine line2);
+
 
 
 
@@ -106,3 +117,23 @@ void	CGRectClosestTwoCornerPoints(CGRect rect, CGPoint point, CGPoint *point1, C
 // The point at which a line, extended infinitely past its second point, intersects
 // the rectangle. Returns NULL_POINT if no interseciton is found.
 CGPoint CGLineIntersectsRectAtPoint(CGRect rect, CGLine line);
+
+
+
+
+#pragma mark - Arcs
+
+// The control points for an arc from startPoint to endPoint with radius.
+// To determine the right hand rule: make an arc with your right hand, placing your pinky on the screen and your
+// thumb pointing out from the screen. With the base of your hand at the start point, the curvature of your hand
+// indicates what direction the arc will curve to the endpoint.
+void CGControlPointsForArcBetweenPointsWithRadius(CGPoint startPoint,
+                                                  CGPoint endPoint,
+                                                  CGFloat radius,
+                                                  bool rightHandRule,
+                                                  CGPoint *controlPoint1,
+                                                  CGPoint *controlPoint2);
+
+
+
+

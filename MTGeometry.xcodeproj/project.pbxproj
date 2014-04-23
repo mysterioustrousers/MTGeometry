@@ -7,56 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C266AB7215F541DC001C3DA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C266AB7115F541DC001C3DA2 /* Foundation.framework */; };
-		C266AB7715F541DC001C3DA2 /* MTGeometry.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C266AB7615F541DC001C3DA2 /* MTGeometry.h */; };
-		C266AB7915F541DC001C3DA2 /* MTGeometry.c in Sources */ = {isa = PBXBuildFile; fileRef = C266AB7815F541DC001C3DA2 /* MTGeometry.c */; };
-		C266AB8115F541DC001C3DA2 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C266AB8015F541DC001C3DA2 /* SenTestingKit.framework */; };
-		C266AB8715F541DC001C3DA2 /* libMTGeometry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C266AB6E15F541DC001C3DA2 /* libMTGeometry.a */; };
-		C266AB8D15F541DC001C3DA2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C266AB8B15F541DC001C3DA2 /* InfoPlist.strings */; };
-		C266AB9015F541DC001C3DA2 /* MTGeometryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C266AB8F15F541DC001C3DA2 /* MTGeometryTests.m */; };
-		C266AB9F15F542E6001C3DA2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C266AB9D15F542DA001C3DA2 /* CoreGraphics.framework */; };
+		C2758F7F1907F0C2004DDE4F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2758F7E1907F0C2004DDE4F /* XCTest.framework */; };
+		C2758F801907F0D3004DDE4F /* libMTGeometry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C27D916F1753CCF500C622DA /* libMTGeometry.a */; };
 		C27D91661753CCF500C622DA /* MTGeometry.c in Sources */ = {isa = PBXBuildFile; fileRef = C266AB7815F541DC001C3DA2 /* MTGeometry.c */; };
 		C27D91681753CCF500C622DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C266AB7115F541DC001C3DA2 /* Foundation.framework */; };
 		C27D916B1753CCF500C622DA /* MTGeometry.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C266AB7615F541DC001C3DA2 /* MTGeometry.h */; };
 		C27D91711753CD8100C622DA /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27D91701753CD8100C622DA /* ApplicationServices.framework */; };
-		C27D91721753CE9400C622DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C266AB7115F541DC001C3DA2 /* Foundation.framework */; };
 		C27D91771753CF3400C622DA /* MTGeometryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C266AB8F15F541DC001C3DA2 /* MTGeometryTests.m */; };
 		C27D917A1753CF3400C622DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C266AB7115F541DC001C3DA2 /* Foundation.framework */; };
-		C27D917B1753CF3400C622DA /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C266AB8015F541DC001C3DA2 /* SenTestingKit.framework */; };
-		C27D917C1753CF3400C622DA /* libMTGeometry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C266AB6E15F541DC001C3DA2 /* libMTGeometry.a */; };
 		C27D917E1753CF3400C622DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C266AB8B15F541DC001C3DA2 /* InfoPlist.strings */; };
-		C27D91881753D3BB00C622DA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C266AB9D15F542DA001C3DA2 /* CoreGraphics.framework */; };
 		C27D91891753D3CC00C622DA /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27D91701753CD8100C622DA /* ApplicationServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C266AB8515F541DC001C3DA2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C266AB6515F541DC001C3DA2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C266AB6D15F541DC001C3DA2;
-			remoteInfo = MTGeometry;
-		};
-		C27D91861753D0A300C622DA /* PBXContainerItemProxy */ = {
+		C2758F7C1907ED76004DDE4F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C266AB6515F541DC001C3DA2 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = C27D91641753CCF500C622DA;
-			remoteInfo = "MTGeometry-OSX";
+			remoteInfo = MTGeometry;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		C266AB6C15F541DC001C3DA2 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/${PRODUCT_NAME}";
-			dstSubfolderSpec = 16;
-			files = (
-				C266AB7715F541DC001C3DA2 /* MTGeometry.h in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C27D916A1753CCF500C622DA /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -70,44 +43,22 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C266AB6E15F541DC001C3DA2 /* libMTGeometry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMTGeometry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C266AB7115F541DC001C3DA2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C266AB7515F541DC001C3DA2 /* MTGeometry-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MTGeometry-Prefix.pch"; sourceTree = "<group>"; };
 		C266AB7615F541DC001C3DA2 /* MTGeometry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTGeometry.h; sourceTree = "<group>"; };
 		C266AB7815F541DC001C3DA2 /* MTGeometry.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = MTGeometry.c; sourceTree = "<group>"; };
-		C266AB7F15F541DC001C3DA2 /* MTGeometryTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MTGeometryTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C266AB8015F541DC001C3DA2 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		C266AB8A15F541DC001C3DA2 /* MTGeometryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MTGeometryTests-Info.plist"; sourceTree = "<group>"; };
 		C266AB8C15F541DC001C3DA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C266AB8E15F541DC001C3DA2 /* MTGeometryTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTGeometryTests.h; sourceTree = "<group>"; };
 		C266AB8F15F541DC001C3DA2 /* MTGeometryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTGeometryTests.m; sourceTree = "<group>"; };
 		C266AB9D15F542DA001C3DA2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C2758F7E1907F0C2004DDE4F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C27D916F1753CCF500C622DA /* libMTGeometry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMTGeometry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C27D91701753CD8100C622DA /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/ApplicationServices.framework; sourceTree = DEVELOPER_DIR; };
-		C27D91831753CF3400C622DA /* MTGeometryTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MTGeometryTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C27D91831753CF3400C622DA /* MTGeometryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MTGeometryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C266AB6B15F541DC001C3DA2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C266AB7215F541DC001C3DA2 /* Foundation.framework in Frameworks */,
-				C266AB9F15F542E6001C3DA2 /* CoreGraphics.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C266AB7B15F541DC001C3DA2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C27D91881753D3BB00C622DA /* CoreGraphics.framework in Frameworks */,
-				C27D91721753CE9400C622DA /* Foundation.framework in Frameworks */,
-				C266AB8115F541DC001C3DA2 /* SenTestingKit.framework in Frameworks */,
-				C266AB8715F541DC001C3DA2 /* libMTGeometry.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C27D91671753CCF500C622DA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -121,10 +72,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2758F801907F0D3004DDE4F /* libMTGeometry.a in Frameworks */,
+				C2758F7F1907F0C2004DDE4F /* XCTest.framework in Frameworks */,
 				C27D91891753D3CC00C622DA /* ApplicationServices.framework in Frameworks */,
 				C27D917A1753CF3400C622DA /* Foundation.framework in Frameworks */,
-				C27D917B1753CF3400C622DA /* SenTestingKit.framework in Frameworks */,
-				C27D917C1753CF3400C622DA /* libMTGeometry.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,10 +95,8 @@
 		C266AB6F15F541DC001C3DA2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C266AB6E15F541DC001C3DA2 /* libMTGeometry.a */,
-				C266AB7F15F541DC001C3DA2 /* MTGeometryTests.octest */,
 				C27D916F1753CCF500C622DA /* libMTGeometry.a */,
-				C27D91831753CF3400C622DA /* MTGeometryTests.octest */,
+				C27D91831753CF3400C622DA /* MTGeometryTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,10 +104,10 @@
 		C266AB7015F541DC001C3DA2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C2758F7E1907F0C2004DDE4F /* XCTest.framework */,
 				C27D91701753CD8100C622DA /* ApplicationServices.framework */,
 				C266AB7115F541DC001C3DA2 /* Foundation.framework */,
 				C266AB9D15F542DA001C3DA2 /* CoreGraphics.framework */,
-				C266AB8015F541DC001C3DA2 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -203,45 +152,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C266AB6D15F541DC001C3DA2 /* MTGeometry-iOS */ = {
+		C27D91641753CCF500C622DA /* MTGeometry */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C266AB9315F541DC001C3DA2 /* Build configuration list for PBXNativeTarget "MTGeometry-iOS" */;
-			buildPhases = (
-				C266AB6A15F541DC001C3DA2 /* Sources */,
-				C266AB6B15F541DC001C3DA2 /* Frameworks */,
-				C266AB6C15F541DC001C3DA2 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "MTGeometry-iOS";
-			productName = MTGeometry;
-			productReference = C266AB6E15F541DC001C3DA2 /* libMTGeometry.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		C266AB7E15F541DC001C3DA2 /* MTGeometryTests-iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C266AB9615F541DC001C3DA2 /* Build configuration list for PBXNativeTarget "MTGeometryTests-iOS" */;
-			buildPhases = (
-				C266AB7A15F541DC001C3DA2 /* Sources */,
-				C266AB7B15F541DC001C3DA2 /* Frameworks */,
-				C266AB7C15F541DC001C3DA2 /* Resources */,
-				C266AB7D15F541DC001C3DA2 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C266AB8615F541DC001C3DA2 /* PBXTargetDependency */,
-			);
-			name = "MTGeometryTests-iOS";
-			productName = MTGeometryTests;
-			productReference = C266AB7F15F541DC001C3DA2 /* MTGeometryTests.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
-		C27D91641753CCF500C622DA /* MTGeometry-OSX */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C27D916C1753CCF500C622DA /* Build configuration list for PBXNativeTarget "MTGeometry-OSX" */;
+			buildConfigurationList = C27D916C1753CCF500C622DA /* Build configuration list for PBXNativeTarget "MTGeometry" */;
 			buildPhases = (
 				C27D91651753CCF500C622DA /* Sources */,
 				C27D91671753CCF500C622DA /* Frameworks */,
@@ -251,29 +164,28 @@
 			);
 			dependencies = (
 			);
-			name = "MTGeometry-OSX";
+			name = MTGeometry;
 			productName = MTGeometry;
 			productReference = C27D916F1753CCF500C622DA /* libMTGeometry.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		C27D91731753CF3400C622DA /* MTGeometryTests-OSX */ = {
+		C27D91731753CF3400C622DA /* MTGeometryTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C27D91801753CF3400C622DA /* Build configuration list for PBXNativeTarget "MTGeometryTests-OSX" */;
+			buildConfigurationList = C27D91801753CF3400C622DA /* Build configuration list for PBXNativeTarget "MTGeometryTests" */;
 			buildPhases = (
 				C27D91761753CF3400C622DA /* Sources */,
 				C27D91791753CF3400C622DA /* Frameworks */,
 				C27D917D1753CF3400C622DA /* Resources */,
-				C27D917F1753CF3400C622DA /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C27D91871753D0A300C622DA /* PBXTargetDependency */,
+				C2758F7D1907ED76004DDE4F /* PBXTargetDependency */,
 			);
-			name = "MTGeometryTests-OSX";
+			name = MTGeometryTests;
 			productName = MTGeometryTests;
-			productReference = C27D91831753CF3400C622DA /* MTGeometryTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = C27D91831753CF3400C622DA /* MTGeometryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -281,8 +193,14 @@
 		C266AB6515F541DC001C3DA2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastTestingUpgradeCheck = 0510;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Mysterious Trousers";
+				TargetAttributes = {
+					C27D91731753CF3400C622DA = {
+						TestTargetID = C27D91641753CCF500C622DA;
+					};
+				};
 			};
 			buildConfigurationList = C266AB6815F541DC001C3DA2 /* Build configuration list for PBXProject "MTGeometry" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -296,23 +214,13 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C266AB6D15F541DC001C3DA2 /* MTGeometry-iOS */,
-				C27D91641753CCF500C622DA /* MTGeometry-OSX */,
-				C266AB7E15F541DC001C3DA2 /* MTGeometryTests-iOS */,
-				C27D91731753CF3400C622DA /* MTGeometryTests-OSX */,
+				C27D91641753CCF500C622DA /* MTGeometry */,
+				C27D91731753CF3400C622DA /* MTGeometryTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C266AB7C15F541DC001C3DA2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C266AB8D15F541DC001C3DA2 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C27D917D1753CF3400C622DA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -323,52 +231,7 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		C266AB7D15F541DC001C3DA2 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-		C27D917F1753CF3400C622DA /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		C266AB6A15F541DC001C3DA2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C266AB7915F541DC001C3DA2 /* MTGeometry.c in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C266AB7A15F541DC001C3DA2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C266AB9015F541DC001C3DA2 /* MTGeometryTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C27D91651753CCF500C622DA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -388,15 +251,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C266AB8615F541DC001C3DA2 /* PBXTargetDependency */ = {
+		C2758F7D1907ED76004DDE4F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C266AB6D15F541DC001C3DA2 /* MTGeometry-iOS */;
-			targetProxy = C266AB8515F541DC001C3DA2 /* PBXContainerItemProxy */;
-		};
-		C27D91871753D0A300C622DA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C27D91641753CCF500C622DA /* MTGeometry-OSX */;
-			targetProxy = C27D91861753D0A300C622DA /* PBXContainerItemProxy */;
+			target = C27D91641753CCF500C622DA /* MTGeometry */;
+			targetProxy = C2758F7C1907ED76004DDE4F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -421,10 +279,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -438,11 +293,13 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 				);
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
 			};
 			name = Debug;
 		};
@@ -455,10 +312,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -469,59 +323,15 @@
 					"-all_load",
 					"-ObjC",
 				);
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		C266AB9415F541DC001C3DA2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DSTROOT = /tmp/MTGeometry.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MTGeometry/MTGeometry-Prefix.pch";
-				PRODUCT_NAME = MTGeometry;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		C266AB9515F541DC001C3DA2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DSTROOT = /tmp/MTGeometry.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MTGeometry/MTGeometry-Prefix.pch";
-				PRODUCT_NAME = MTGeometry;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		C266AB9715F541DC001C3DA2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MTGeometry/MTGeometry-Prefix.pch";
-				INFOPLIST_FILE = "MTGeometryTests/MTGeometryTests-Info.plist";
-				PRODUCT_NAME = MTGeometryTests;
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		C266AB9815F541DC001C3DA2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MTGeometry/MTGeometry-Prefix.pch";
-				INFOPLIST_FILE = "MTGeometryTests/MTGeometryTests-Info.plist";
-				PRODUCT_NAME = MTGeometryTests;
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
 		C27D916D1753CCF500C622DA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				DSTROOT = /tmp/MTGeometry.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MTGeometry/MTGeometry-Prefix.pch";
@@ -535,7 +345,6 @@
 		C27D916E1753CCF500C622DA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				DSTROOT = /tmp/MTGeometry.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MTGeometry/MTGeometry-Prefix.pch";
@@ -549,28 +358,30 @@
 		C27D91811753CF3400C622DA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MTGeometry/MTGeometry-Prefix.pch";
 				INFOPLIST_FILE = "MTGeometryTests/MTGeometryTests-Info.plist";
 				PRODUCT_NAME = MTGeometryTests;
-				SDKROOT = macosx;
-				SUPPORTED_PLATFORMS = macosx;
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
 		C27D91821753CF3400C622DA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MTGeometry/MTGeometry-Prefix.pch";
 				INFOPLIST_FILE = "MTGeometryTests/MTGeometryTests-Info.plist";
 				PRODUCT_NAME = MTGeometryTests;
-				SDKROOT = macosx;
-				SUPPORTED_PLATFORMS = macosx;
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
@@ -586,25 +397,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C266AB9315F541DC001C3DA2 /* Build configuration list for PBXNativeTarget "MTGeometry-iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C266AB9415F541DC001C3DA2 /* Debug */,
-				C266AB9515F541DC001C3DA2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C266AB9615F541DC001C3DA2 /* Build configuration list for PBXNativeTarget "MTGeometryTests-iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C266AB9715F541DC001C3DA2 /* Debug */,
-				C266AB9815F541DC001C3DA2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C27D916C1753CCF500C622DA /* Build configuration list for PBXNativeTarget "MTGeometry-OSX" */ = {
+		C27D916C1753CCF500C622DA /* Build configuration list for PBXNativeTarget "MTGeometry" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C27D916D1753CCF500C622DA /* Debug */,
@@ -613,7 +406,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C27D91801753CF3400C622DA /* Build configuration list for PBXNativeTarget "MTGeometryTests-OSX" */ = {
+		C27D91801753CF3400C622DA /* Build configuration list for PBXNativeTarget "MTGeometryTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C27D91811753CF3400C622DA /* Debug */,
