@@ -245,6 +245,176 @@
 	XCTAssertTrue(CGPointEqualToPoint(CGLineIntersectsRectAtPoint(rect, line), CGPointMake(5, 3.5)));
 }
 
+- (void)testCircleMake
+{
+    CGCircle circle = CGCircleMake(CGPointMake(1,2), 3);
+    
+    XCTAssertTrue(CGPointEqualToPoint(circle.center,CGPointMake(1, 2)));
+    XCTAssertEqual(circle.radius, 3);
+}
+
+- (void)testCircleEquals
+{
+    CGCircle circle1 = CGCircleMake(CGPointMake(1,2), 3);
+    CGCircle circle2 = CGCircleMake(CGPointMake(1,2), 3);
+    CGCircle circle3 = CGCircleMake(CGPointMake(1,3), 3);
+    CGCircle circle4 = CGCircleMake(CGPointMake(1,2), 4);
+    
+    XCTAssertTrue(CGCircleEqualToCircle(circle1, circle2));
+    XCTAssertFalse(CGCircleEqualToCircle(circle1, circle3));
+    XCTAssertFalse(CGCircleEqualToCircle(circle1, circle4));
+}
+
+- (void)testCircleScale
+{
+    CGCircle circle = CGCircleMake(CGPointMake(1,2), 3);
+    
+    circle = CGCircleScale(circle, 2.0);
+    
+    XCTAssertEqualWithAccuracy(circle.radius,6,0.0001);
+}
+
+- (void)testCircleTranslate
+{
+    CGCircle circle = CGCircleMake(CGPointMake(1,2), 3);
+    
+    circle = CGCircleTranslate(circle, CGDeltaMake(1, 2));
+    
+    XCTAssertTrue(circle.center.x == 2);
+    XCTAssertTrue(circle.center.y == 4);
+}
+
+- (void)testCircleContainPoint
+{
+    CGCircle circle = CGCircleMake(CGPointMake(1,2), 3);
+    
+    // point on the right side of the circle
+    CGPoint rightPoint = CGPointMake(1 + 3, 2);
+    
+    // this will be closer to circle center
+    CGPoint rightPoint2 = CGPointMake(3, 2);
+    
+    // generate new points by rotation
+    CGPoint insidePoint1 = CGPointRotatedAroundPoint(rightPoint, circle.center, 30);
+    CGPoint insidePoint2 = CGPointRotatedAroundPoint(rightPoint, circle.center, 160);
+    CGPoint insidePoint3 = CGPointRotatedAroundPoint(rightPoint, circle.center, 270);
+    CGPoint insidePoint4 = CGPointRotatedAroundPoint(rightPoint2, circle.center, 270);
+    
+    XCTAssertTrue(CGCircleContainsPoint(circle, rightPoint));
+    XCTAssertTrue(CGCircleContainsPoint(circle, rightPoint2));
+    XCTAssertTrue(CGCircleContainsPoint(circle, insidePoint1));
+    XCTAssertTrue(CGCircleContainsPoint(circle, insidePoint2));
+    XCTAssertTrue(CGCircleContainsPoint(circle, insidePoint3));
+    XCTAssertTrue(CGCircleContainsPoint(circle, insidePoint4));
+    
+    // generate outside points by rotating on a larger circle
+    
+    CGPoint outsidePoint = CGPointMake(1 + 4, 2);
+    CGPoint outsidePoint1 = CGPointRotatedAroundPoint(outsidePoint, circle.center, 30);
+    CGPoint outsidePoint2 = CGPointRotatedAroundPoint(outsidePoint, circle.center, 160);
+    CGPoint outsidePoint3 = CGPointRotatedAroundPoint(outsidePoint, circle.center, 270);
+    CGPoint outsidePoint4 = CGPointRotatedAroundPoint(outsidePoint, circle.center, 270);
+    
+    XCTAssertFalse(CGCircleContainsPoint(circle, outsidePoint));
+    XCTAssertFalse(CGCircleContainsPoint(circle, outsidePoint1));
+    XCTAssertFalse(CGCircleContainsPoint(circle, outsidePoint2));
+    XCTAssertFalse(CGCircleContainsPoint(circle, outsidePoint3));
+    XCTAssertFalse(CGCircleContainsPoint(circle, outsidePoint4));
+}
+
+- (void)testCircleBoundingBox
+{
+    CGCircle circle = CGCircleMake(CGPointMake(1,2), 3);
+    CGRect expectedBoundingRect;
+    expectedBoundingRect.origin = CGPointMake(1 - 3, 2 - 3);
+    expectedBoundingRect.size = CGSizeMake(6, 6);
+    
+    XCTAssertTrue(CGRectEqualToRect(CGCircleGetBoundingRect(circle), expectedBoundingRect));
+}
+
+- (void)testDistanceFromPointToCircle
+{
+    CGCircle circle = CGCircleMake(CGPointMake(1,2), 3);
+    
+    XCTAssertEqualWithAccuracy(CGGetDistanceFromPointToCircle(circle.center, circle), 0.0, 0.0001);
+    
+    CGPoint rightPoint = CGPointMake(1 + 5, 2);
+    
+    XCTAssertEqualWithAccuracy(CGGetDistanceFromPointToCircle(rightPoint, circle), 2.0, 0.0001);
+    
+    CGPoint topPoint = CGPointMake(1, 2 + 6);
+    
+    XCTAssertEqualWithAccuracy(CGGetDistanceFromPointToCircle(topPoint, circle), 3.0, 0.0001);
+    
+    CGPoint diagonalpoint = CGPointMake(1 - 4, 2 - 3);
+    
+    XCTAssertEqualWithAccuracy(CGGetDistanceFromPointToCircle(diagonalpoint, circle), 2.0, 0.0001);
+}
+
+- (void)testCircleToCircleIntersection {
+    
+    CGCircle circle = CGCircleMake(CGPointMake(1,2), 3);
+    CGCircle contained = CGCircleMake(CGPointMake(1,2), 1);
+    CGCircle containing = CGCircleMake(CGPointMake(1,1), 5);
+    CGCircle neighborRight = CGCircleMake(CGPointMake(4,2), 2);
+    CGCircle neighborTangent = CGCircleMake(CGPointMake(1,6), 1);
+    CGCircle outside1 = CGCircleMake(CGPointMake(7,2), 2);
+    CGCircle outside2 = CGCircleMake(CGPointMake(1,-6), 1);
+    CGCircle barelyOutside = CGCircleMake(CGPointMake(1,6.001), 1);
+    
+    XCTAssertTrue(CGCircleIntersectsCircle(circle, contained));
+    XCTAssertTrue(CGCircleIntersectsCircle(circle, containing));
+    XCTAssertTrue(CGCircleIntersectsCircle(circle, neighborRight));
+    XCTAssertTrue(CGCircleIntersectsCircle(circle, neighborTangent));
+    
+    XCTAssertFalse(CGCircleIntersectsCircle(circle, outside1));
+    XCTAssertFalse(CGCircleIntersectsCircle(circle, outside2));
+    XCTAssertFalse(CGCircleIntersectsCircle(circle, barelyOutside));
+    
+}
+
+- (void)testCircleToRectangleIntersection {
+
+    CGCircle circle = CGCircleMake(CGPointMake(1,2), 3);
+    
+    XCTAssertTrue(CGCircleIntersectsRectangle(circle, CGCircleGetBoundingRect(circle)));
+    
+    CGRect testRect = CGRectMake(3, 1, 2, 1);
+    
+    XCTAssertTrue(CGCircleIntersectsRectangle(circle, testRect));
+    
+    testRect.origin = CGPointMake(-3, 0);
+    
+    XCTAssertTrue(CGCircleIntersectsRectangle(circle, testRect));
+    
+    testRect.origin = CGPointZero;
+    
+    XCTAssertTrue(CGCircleIntersectsRectangle(circle, testRect));
+    
+    testRect.origin = CGPointMake(0, 5);
+    
+    XCTAssertTrue(CGCircleIntersectsRectangle(circle, testRect));
+    
+    testRect.origin = CGPointMake(0, 6);
+    
+    XCTAssertFalse(CGCircleIntersectsRectangle(circle, testRect));
+    
+}
+
+- (void)testCircleToLineIntersection {
+    
+    CGCircle circle = CGCircleMake(CGPointMake(1,2), 3);
+    
+    CGLine intersectingLine = CGLineMake(CGPointMake(-2, 0), CGPointMake(0, 6));
+    CGLine intersectingLine2 = CGLineMake(CGPointMake(4, 0), CGPointMake(2, 1));
+    
+    CGLine notIntersecting = CGLineMake(CGPointMake(3, 5), CGPointMake(6, 6));
+    
+    XCTAssertTrue(CGCircleIntersectsLine(circle, intersectingLine));
+    XCTAssertTrue(CGCircleIntersectsLine(circle, intersectingLine2));
+
+    XCTAssertFalse(CGCircleIntersectsLine(circle, notIntersecting));
+}
 
 
 @end

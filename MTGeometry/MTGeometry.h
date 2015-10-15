@@ -31,7 +31,11 @@ typedef struct {
 	CGPoint point2;
 } CGLine;
 
-
+// A circle is defined as a center point and a radius
+typedef struct {
+    CGPoint center;
+    CGFloat radius;
+} CGCircle;
 
 
 #pragma mark - Points
@@ -47,8 +51,6 @@ CGPoint CGPointAlongLine(CGLine line, CGFloat distance);
 
 // A point rotated around the pivot point by degrees.
 CGPoint CGPointRotatedAroundPoint(CGPoint point, CGPoint pivot, CGFloat degrees);
-
-
 
 
 #pragma mark - Lines
@@ -136,4 +138,34 @@ void CGControlPointsForArcBetweenPointsWithRadius(CGPoint startPoint,
 
 
 
+// Create a circle from a center and a radius
+CGCircle CGCircleMake(CGPoint center, CGFloat radius);
+
+// Returns true if two circles are exactly coincident
+bool CGCircleEqualToCircle(CGCircle circle1, CGCircle circle2);
+
+// Returns a scaled circle.
+CGCircle CGCircleScale(CGCircle circle, CGFloat scale);
+
+// Returns a circle translated by delta.
+CGCircle CGCircleTranslate(CGCircle circle, CGDelta delta);
+
+// Returns true if point is inside or on the boundary of the circle
+bool CGCircleContainsPoint(CGCircle circle, CGPoint point);
+
+// Returns true if two circles intersect or one is contained within the other
+bool CGCircleIntersectsCircle(CGCircle circle1, CGCircle circle2);
+
+// Returns true if circle and line intersect
+bool CGCircleIntersectsLine(CGCircle circle, CGLine line);
+
+// Returns true if circle and rectangle intersect
+bool CGCircleIntersectsRectangle(CGCircle circle, CGRect rect);
+
+// Returns the minimum size rectangle that contains circle
+CGRect CGCircleGetBoundingRect(CGCircle circle);
+
+// Returns the distance from a point to a circle
+// Returns 0 if the point is inside the circle
+CGFloat CGGetDistanceFromPointToCircle(CGPoint point, CGCircle circle);
 

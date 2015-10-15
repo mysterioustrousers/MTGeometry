@@ -390,9 +390,144 @@ void CGControlPointsForArcBetweenPointsWithRadius(CGPoint startPoint,
     *controlPoint2          = translatedLine.point2;
 }
 
+#pragma mark - Circles
 
+CGCircle CGCircleMake(CGPoint center, CGFloat radius)
+{
+    CGCircle circle;
+    
+    circle.center = center;
+    circle.radius = radius;
+    
+    return circle;
+}
 
+bool CGCircleEqualToCircle(CGCircle circle1, CGCircle circle2)
+{
+    return circle1.radius == circle2.radius && CGPointEqualToPoint(circle1.center, circle2.center);
+}
 
+CGCircle CGCircleScale(CGCircle circle, CGFloat scale)
+{
+    circle.radius *= scale;
+    
+    return circle;
+}
 
+CGCircle CGCircleTranslate(CGCircle circle, CGDelta delta)
+{
+    circle.center.x += delta.x;
+    circle.center.y += delta.y;
+    
+    return circle;
+}
 
+bool CGCircleContainsPoint(CGCircle circle, CGPoint point)
+{
+    CGFloat distanceToCircle = CGPointDistance(point, circle.center);
+    
+    return distanceToCircle - circle.radius <= MT_EPS;
+}
 
+// 2 circles intersect if the distance between their centeres is less than the sum of their radi.
+
+bool CGCircleIntersectsCircle(CGCircle circle1, CGCircle circle2)
+{
+    CGFloat distanceBetweenCenters = CGPointDistance(circle1.center, circle2.center);
+    CGFloat maxAllowedDistance = circle1.radius + circle2.radius;
+    
+    return distanceBetweenCenters - maxAllowedDistance <= MT_EPS;
+}
+
+// Based on http://doswa.com/2009/07/13/circle-segment-intersectioncollision.html
+
+bool CGCircleIntersectsLine(CGCircle circle, CGLine line)
+{
+    CGFloat lineLength = CGLineLength(line);
+    
+    CGPoint normalizedLineVector = CGPointMake(line.point2.x - line.point1.x,
+                                     line.point2.y - line.point1.y);
+    
+    // normalize line vector
+    normalizedLineVector.x /= lineLength;
+    normalizedLineVector.y /= lineLength;
+    
+    CGPoint circleCenterVector = CGPointMake(circle.center.x - line.point1.x,
+                                             circle.center.y - line.point1.y);
+    
+    // dot product between line vector and circle center vector
+    CGFloat circleLineDotProduct = circleCenterVector.x * normalizedLineVector.x + circleCenterVector.y * normalizedLineVector.y;
+    
+    // project circle center onto line. This gives the closest point from the circle to the line
+    CGPoint circleToLineProjection = normalizedLineVector;
+    circleToLineProjection.x *= circleLineDotProduct;
+    circleToLineProjection.y *= circleLineDotProduct;
+    
+    // convert to "world" coordinates
+    circleToLineProjection.x += line.point1.x;
+    circleToLineProjection.y += line.point1.y;
+    
+    // clamp projection to ends of segments
+    
+    if (circleLineDotProduct < 0) {
+        circleToLineProjection = line.point1;
+    }
+    
+    if (circleLineDotProduct > lineLength) {
+        circleToLineProjection = line.point2;
+    }
+    
+    // circle and line intersect if the circle contains the projected point
+    
+    return CGCircleContainsPoint(circle, circleToLineProjection);
+}
+
+// based on http://stackoverflow.com/questions/401847/circle-rectangle-collision-detection-intersection
+
+CGFloat clamp(CGFloat value, CGFloat min, CGFloat max)
+{
+    if (value < min) {
+        return min;
+    }
+    
+    if (value > max) {
+        return max;
+    }
+    
+    return value;
+    
+}
+
+bool CGCircleIntersectsRectangle(CGCircle circle, CGRect rect)
+{
+
+    // Find the closest point to the circle within the rectangle
+    CGFloat closestX = clamp(circle.center.x, rect.origin.x, rect.origin.x + rect.size.width);
+    CGFloat closestY = clamp(circle.center.y, rect.origin.y, rect.origin.y + rect.size.height);
+    
+    CGPoint closestPoint = CGPointMake(closestX, closestY);
+    
+    // If the distance from the circle to the closest point is less than the circle's radius, an intersection occurs
+    
+    return CGPointDistance(closestPoint, circle.center) <= circle.radius;
+}
+
+CGRect CGCircleGetBoundingRect(CGCircle circle)
+{
+    CGPoint topLeftPoint = CGPointMake(circle.center.x - circle.radius,
+                                       circle.center.y - circle.radius);
+    CGFloat size = circle.radius * 2.0;
+    
+    return CGRectMake(topLeftPoint.x, topLeftPoint.y, size, size);
+}
+
+CGFloat CGGetDistanceFromPointToCircle(CGPoint point, CGCircle circle)
+{
+    CGFloat distanceToCenter = CGPointDistance(point, circle.center);
+    
+    if (distanceToCenter <= circle.radius) {
+        return 0.0;
+    }
+    
+    return distanceToCenter - circle.radius;
+}

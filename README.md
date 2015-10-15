@@ -78,6 +78,38 @@ NOTE: You may need to add `-all_load` to "Other Linker Flags" in your targets bu
     // The point at which a line, extended infinitely past its second point, intersects the rectangle. Returns NOPOINT if no intersection is found.
     CGPoint CGLineIntersectsRectAtPoint(CGRect rect, CGLine line);
 
+#### Circles
+
+    // Create a circle from a center and a radius
+    CGCircle CGCircleMake(CGPoint center, CGFloat radius);
+    
+    // Returns true if two circles are exactly coincident
+    bool CGCircleEqualToCircle(CGCircle circle1, CGCircle circle2);
+    
+    // Returns a scaled circle.
+    CGCircle CGCircleScale(CGCircle circle, CGFloat scale);
+    
+    // Returns a circle translated by delta.
+    CGCircle CGCircleTranslate(CGCircle circle, CGDelta delta);
+    
+    // Returns true if point is inside or on the boundary of the circle
+    bool CGCircleContainsPoint(CGCircle circle, CGPoint point);
+    
+    // Returns true if two circles intersect or one is contained within the other
+    bool CGCircleIntersectsCircle(CGCircle circle1, CGCircle circle2);
+    
+    // Returns true if circle and line intersect
+    bool CGCircleIntersectsLine(CGCircle circle, CGLine line);
+    
+    // Returns true if circle and rectangle intersect
+    bool CGCircleIntersectsRectangle(CGCircle circle, CGRect rect);
+    
+    // Returns the minimum size rectangle that contains circle
+    CGRect CGCircleGetBoundingRect(CGCircle circle);
+    
+    // Returns the distance from a point to a circle
+    // Returns 0 if the point is inside the circle
+    CGFloat CGGetDistanceFromPointToCircle(CGPoint point, CGCircle circle);
 
 ### Example Usage
 
@@ -100,4 +132,10 @@ The point where a line intersects a rect, if at all:
     CGRect rect = CGRectMake(1, 1, 4, 4);
     CGLine line = CGLineMake(CGPointMake(0, 1), CGPointMake(2, 2));
     CGLineIntersectsRectAtPoint(rect, line);	// => (5, 3.5)
+    
+Find if a circle contains a given point:
+
+	CGCircle circle = CGCircleMake(CGPointMake(1,2), 3);
+	CGPoint point = CGPointMake(5,2);
+	bool containsPoint = CGCircleContainsPoint(circle, point);
 
