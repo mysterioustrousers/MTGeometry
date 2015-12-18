@@ -159,9 +159,6 @@ bool CGCircleIntersectsCircle(CGCircle circle1, CGCircle circle2);
 // Returns true if circle and line intersect
 bool CGCircleIntersectsLine(CGCircle circle, CGLine line);
 
-// Returns the number of intersection points - 0, 1 or 2
-int CGCircleIntersectsLineWithPoints(CGCircle circle, CGLine line, CGPoint *intersect1, CGPoint *intersect2);
-
 // Returns true if circle and rectangle intersect
 bool CGCircleIntersectsRectangle(CGCircle circle, CGRect rect);
 
